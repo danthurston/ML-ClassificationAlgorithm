@@ -24,6 +24,7 @@ An example of the above is that the solver ‘adam’ was chosen due to its know
 
 ## Breakdown
 First, we begin with the full classifier with all its parameters at its default state (Appendix 1):
+![1-MLPClassifier](https://user-images.githubusercontent.com/54746562/141026247-a4d2d5b9-00a5-4794-bfc9-09a8831e590a.png)
 
 ### Stage 1:
 List all parameters for an easier to work with format.
