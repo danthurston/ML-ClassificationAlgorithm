@@ -1,5 +1,4 @@
-# ML-Classification_Algorithm
-Machine Learning Classification Algorithm
+# Machine Learning Classification Algorithm
 
 ## Introduction
 For this assignment the task was to develop, define and utilize a machine learning classification algorithm. The algorithm was ultimately to be used to find the percentage of spam in a data set of thousands of emails. Once this had been achieved, the following task was to apply n-fold cross validation to the algorithm to test its effectiveness across the whole dataset. Lastly, statistics regarding the accuracy of the algorithm are output for a final evaluation.
