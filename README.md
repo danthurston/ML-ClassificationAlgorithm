@@ -39,18 +39,23 @@ This is the result of the breakdown. A list of all the parameters that need to b
 
 ## HPO Function – GridSearchCV()
 The chosen function to execute HPO is GridSearchCV(). Once the breakdown process has been completed the ‘parameter_space’ can be defined. This is essentially the list of all the parameters and their various inputs to test to find the perfect classifier. For most tests, the chosen parameters had their testing variables set slightly either side of the default (or the previous result) to be able to decipher whether they are required to be set higher or lower.
+
 For example, this test was comprised of the following parameters and their chosen variables. 
 To show the pure computational power required to complete this task; a laptop with 8GB RAM, Dual-Core AMD-A6 processor offline and running nothing but the referenced program had to be run overnight. Before being left to its devices overnight, it had already been running for 9 hours. It is interesting to note that this function can utilize multiple cores and so if this program was run on a quad-core computer the completion time would be halved. 
+
 The final output of this process is what the function defined as the perfect parameters, along with its ideal complete classifier. From here, further tests are run with various parameters and their respective values to find the perfect classifier for the data. It should be noted that ideally all the parameters would be tested at once with various values to try all possible permutations, however, without a more powerful processor, this could take days to weeks due to the exponential increase in time with parameter value additions (see reflection).
+
 Using this method of smaller batches of parameters, it was vital to notice trends and pick up on constant outcomes. For example, on every test run that included the ‘activation’ parameter, ‘relu’ was returned as the optimum value and so this parameter could reliably be removed from the list and another parameter added in its place. This process is continued until all the parameters can be locked down to their ideal values (see appendix 4 for more testing inputs and outputs). 
 After all the parameters are selected, the ‘param_grid’ variable of GridSearchCV is set to null so that it just performs cross-validation on the completed MLPClassifier for the final output. The program is now ready for final cross-fold validation and evaluation statistics.
 
 ## Cross-Fold Validation Technique
 Once theAs previously mentioned, the GridSearchCV function used to find the optimum parameters also implements cross-fold validation. The general idea behind n-fold cross validation is to split the entire dataset into equal sets. The ‘n’ is the number of groups that the data will be split into. Each of these sets are then used as the test set one-by-one whilst the remainder of the data is used as the training set. The score of this test is retained and the model discarded, and the function moves onto the next test set. Once all tests have been run, all the scores are cross references to give an accuracy score of the model. 
+
 It’s important to note that all once the process of cross-validation has begun, the sets of data are fixed into their respective sets for the duration so that each grouping has the chance to be the test set once and the training set n-1 times. The main choice to make with cross validation is the number of folds (n) to use to validate your model. Generally, this number is 5 or 10 as these values have been shown to result in neither high bias nor variance. (Brownlee, 2018). For this program, 5-fold was chosen over 10 as the latter would be excessive and mainly result in an increase in processing time.
 
 ## Accuracy Score and Evaluation
 As the final output are a series of tools to aid in the evaluation of an algorithm. It’s important to note that just because a high score is achieved on one set of test data that this does not denote complete success as another set of data could be completely off. The aim is to achieve a steadily high and consistent accuracy rate through numerous tests.
+
 There are three main metrics used as the final output for this program, accuracy_score, which is simply the fraction of samples that were predicted correctly. F1_score is a harmonic mean between precision and recall, its formula is as follows: F1 = (2 * (precision * recall)) / (precision + recall). Finally, roc_auc_score is essentially the ‘area under a ROC curve’. ROC stands for Receiver Operating Characteristics. A ROC curve is formed by plotting the true positive rate (TPR) (essentially probability of detection) against the false positive rate (FPR) (essentially probability of false alarm). The area under such curves are often used as a measure of performance, especially for classification problems.
 
 Following these three statistic outputs is a confusion matrix, also known as an error matrix. This is a table that’s commonly used in machine learning to display the error rate of the program. As can be seen in the table below (which utilizes the example output to the side), these tables cross-reference predicted and actual yes and no outputs, which is extended to show totals.
@@ -62,13 +67,20 @@ The final program is incredibly concise, it’s only 100 or so lines of code, wh
 
 ## Reflection
 The decision to choose the neural network classifier MLP was made because there has been a huge surge in popularity in the realm of neural networks (and deep learning) in recent years and so practice in this field was something very desirable. When testing and attempting to find the correct parameters using the ‘GridSearchCV()’ method, this took an extremely large amount of computing power, sometimes having to leave my laptop running the program for days. 
+
 For example, running the HPO function with the parameters to the right had been left to run for 91 hours (appendix 3) before the decision was made to reduce the number of parameters and breakdown the process to make things faster as adding each additional parameter increases the complexity exponentially.
+
 Due to the above issues and not being able to process a full hyper-parameter optimization search, a lot of frustrations arose as a better classifier could undoubtedly have been found. Having to break this process down into smaller batches and trying to spot patterns and (in)consistencies in the outputs of a multitude of tests was a complex task that required focus and thorough note taking.
 
 ## References:
 Brownlee, James - Machine Learning Mastery. 2019. A Gentle Introduction to k-fold Cross-Validation. [ONLINE] Available at: https://machinelearningmastery.com/k-fold-cross-validation/ [Accessed 15 May 2019].
+
 McCaffrey, James - Visual Studio Magazine. 2013. Understanding and Using K-Fold Cross-Validation for Neural Networks. [ONLINE] Available at: https://visualstudiomagazine.com/articles/2013/10/01/understanding-and-using-kfold.aspx. [Accessed 14 May 2019].
+
 Shruti Saxena – 2019. Precision vs Recall – Towards Data Science. [ONLINE] Available at: https://towardsdatascience.com/precision-vs-recall-386cf9f89488. [Accessed 21 May 2019]
 Scikit-learn - 2019. sklearn.neural_network.MLPClassifier — scikit-learn 0.21.1 documentation. [ONLINE] Available at: https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html. [Accessed 15 May 2019].
+
 Scikit-learn - 2019. sklearn.model_selection.GridSearchCV— scikit-learn 0.21.1 documentation. [ONLINE] Available at: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html. [Accessed 15 May 2019].
+
 Scikit-learn - 2019. sklearn.preprocessing.StandardScaler— scikit-learn 0.21.1 documentation. [ONLINE] Available at: https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html. [Accessed 15 May 2019].
+
