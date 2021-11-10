@@ -28,21 +28,28 @@ First, we begin with the full classifier with all its parameters at its default 
 
 ### Stage 1:
 List all parameters for an easier to work with format.
+![2](https://user-images.githubusercontent.com/54746562/141026320-8bf033e2-5424-47a5-ab67-c6d9cf54dc68.png)
 
 ### Stage 2:
-The solver ‘adam’ being chosen excludes certain parameters that only apply to other solvers. 
+The solver ‘adam’ being chosen excludes certain parameters that only apply to other solvers.
+![3](https://user-images.githubusercontent.com/54746562/141026404-080333bb-cc9f-4ddf-be72-d3bab7207ec1.png)
 
 ### Stage 3:
 All the parameters that are not applicable, or the effects of which are not desired can now be removed. Other parameters are useful for testing purposes but not required in practice.
+![4](https://user-images.githubusercontent.com/54746562/141026478-7eccd1c1-7580-48a3-877b-a805cccc5134.png)
 
 ### Stage 4:
 This is the result of the breakdown. A list of all the parameters that need to be passed to the HPO to find their optimum values. This reduction in parameters results in a much more manageable list than initially seen. From here, the hyper-parameter optimization function will be much less complex to implement.
+![5](https://user-images.githubusercontent.com/54746562/141026519-ccb4544c-bd7a-4ace-80dd-277c0e6f8cee.png)
 
 ## HPO Function – GridSearchCV()
 The chosen function to execute HPO is GridSearchCV(). Once the breakdown process has been completed the ‘parameter_space’ can be defined. This is essentially the list of all the parameters and their various inputs to test to find the perfect classifier. For most tests, the chosen parameters had their testing variables set slightly either side of the default (or the previous result) to be able to decipher whether they are required to be set higher or lower.
 
 For example, this test was comprised of the following parameters and their chosen variables. 
-To show the pure computational power required to complete this task; a laptop with 8GB RAM, Dual-Core AMD-A6 processor offline and running nothing but the referenced program had to be run overnight. Before being left to its devices overnight, it had already been running for 9 hours. It is interesting to note that this function can utilize multiple cores and so if this program was run on a quad-core computer the completion time would be halved. 
+To show the pure computational power required to complete this task; a laptop with 8GB RAM, Dual-Core AMD-A6 processor offline and running nothing but the referenced program had to be run overnight. Before being left to its devices overnight, it had already been running for 9 hours. It is interesting to note that this function can utilize multiple cores and so if this program was run on a quad-core computer the completion time would be halved.
+
+![6](https://user-images.githubusercontent.com/54746562/141026550-4e2c81cb-b4b1-439e-b68c-488763d0987d.jpg)
+![7](https://user-images.githubusercontent.com/54746562/141026570-ab98d5e9-44a2-4b80-a7d2-6f3f6cceac7c.png)
 
 The final output of this process is what the function defined as the perfect parameters, along with its ideal complete classifier. From here, further tests are run with various parameters and their respective values to find the perfect classifier for the data. It should be noted that ideally all the parameters would be tested at once with various values to try all possible permutations, however, without a more powerful processor, this could take days to weeks due to the exponential increase in time with parameter value additions (see reflection).
 
@@ -61,13 +68,20 @@ There are three main metrics used as the final output for this program, accuracy
 
 Following these three statistic outputs is a confusion matrix, also known as an error matrix. This is a table that’s commonly used in machine learning to display the error rate of the program. As can be seen in the table below (which utilizes the example output to the side), these tables cross-reference predicted and actual yes and no outputs, which is extended to show totals.
 
+![8](https://user-images.githubusercontent.com/54746562/141026616-11671ed0-3f11-4ec0-a2f9-e1b5935c4919.png)
+![9](https://user-images.githubusercontent.com/54746562/141026645-ad06e13b-ddc7-4158-8485-c61e25143e8b.png)
+
 The last output is a classification report which displays various averages and info to aid in the evaluation of the mode. Precision is the fraction of the results that are relevant. Secondly, Recall is the fraction of total relevant correctly classified results by the program. To aid in the understanding of precision and recall, a few tables and diagrams are provided below. As for the final column, it can be seen using the confusion matrix example table, the ‘support’ column displays the total values (Saxena, 2019).
+
+![10](https://user-images.githubusercontent.com/54746562/141026686-8ac70161-6100-44ca-9f3a-dad9d35efb55.png)
+![11](https://user-images.githubusercontent.com/54746562/141026726-350e05c3-8663-4353-8702-59f18e483b02.png)
 
 ## Conclusion
 The final program is incredibly concise, it’s only 100 or so lines of code, whereas if this was coded in Java instead of Python it would undoubtedly be hundreds of lines of code and inherently far less efficient. It should also be noted that due to the computer running the program being unable to run a complete HPO search, it cannot be said that the optimum MLP classifier was definitely found. With the computer only able to run HPO on 7 or so parameters at a time, they had to be broken down into small batches. Despite the breakdown meaning a huge increase in time spent running tests, it did mean that a far deeper understanding of all the classifiers’ parameters was achieved. This meant that it was discovered which parameters had strong effects or links to one another and thus needed to be tested together, such as ‘max_iter’ and ‘tol’ which both interrelate. 
 
 ## Reflection
-The decision to choose the neural network classifier MLP was made because there has been a huge surge in popularity in the realm of neural networks (and deep learning) in recent years and so practice in this field was something very desirable. When testing and attempting to find the correct parameters using the ‘GridSearchCV()’ method, this took an extremely large amount of computing power, sometimes having to leave my laptop running the program for days. 
+The decision to choose the neural network classifier MLP was made because there has been a huge surge in popularity in the realm of neural networks (and deep learning) in recent years and so practice in this field was something very desirable. When testing and attempting to find the correct parameters using the ‘GridSearchCV()’ method, this took an extremely large amount of computing power, sometimes having to leave my laptop running the program for days.
+![12](https://user-images.githubusercontent.com/54746562/141026754-15333c3b-cc61-4120-b8fc-7f0d5340e6bf.png)
 
 For example, running the HPO function with the parameters to the right had been left to run for 91 hours (appendix 3) before the decision was made to reduce the number of parameters and breakdown the process to make things faster as adding each additional parameter increases the complexity exponentially.
 
