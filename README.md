@@ -24,22 +24,27 @@ An example of the above is that the solver ‘adam’ was chosen due to its know
 
 ## Breakdown
 First, we begin with the full classifier with all its parameters at its default state (Appendix 1):
+
 ![1-MLPClassifier](https://user-images.githubusercontent.com/54746562/141026247-a4d2d5b9-00a5-4794-bfc9-09a8831e590a.png)
 
 ### Stage 1:
 List all parameters for an easier to work with format.
+
 ![2](https://user-images.githubusercontent.com/54746562/141026320-8bf033e2-5424-47a5-ab67-c6d9cf54dc68.png)
 
 ### Stage 2:
 The solver ‘adam’ being chosen excludes certain parameters that only apply to other solvers.
+
 ![3](https://user-images.githubusercontent.com/54746562/141026404-080333bb-cc9f-4ddf-be72-d3bab7207ec1.png)
 
 ### Stage 3:
 All the parameters that are not applicable, or the effects of which are not desired can now be removed. Other parameters are useful for testing purposes but not required in practice.
+
 ![4](https://user-images.githubusercontent.com/54746562/141026478-7eccd1c1-7580-48a3-877b-a805cccc5134.png)
 
 ### Stage 4:
 This is the result of the breakdown. A list of all the parameters that need to be passed to the HPO to find their optimum values. This reduction in parameters results in a much more manageable list than initially seen. From here, the hyper-parameter optimization function will be much less complex to implement.
+
 ![5](https://user-images.githubusercontent.com/54746562/141026519-ccb4544c-bd7a-4ace-80dd-277c0e6f8cee.png)
 
 ## HPO Function – GridSearchCV()
@@ -49,6 +54,7 @@ For example, this test was comprised of the following parameters and their chose
 To show the pure computational power required to complete this task; a laptop with 8GB RAM, Dual-Core AMD-A6 processor offline and running nothing but the referenced program had to be run overnight. Before being left to its devices overnight, it had already been running for 9 hours. It is interesting to note that this function can utilize multiple cores and so if this program was run on a quad-core computer the completion time would be halved.
 
 ![6](https://user-images.githubusercontent.com/54746562/141026550-4e2c81cb-b4b1-439e-b68c-488763d0987d.jpg)
+
 ![7](https://user-images.githubusercontent.com/54746562/141026570-ab98d5e9-44a2-4b80-a7d2-6f3f6cceac7c.png)
 
 The final output of this process is what the function defined as the perfect parameters, along with its ideal complete classifier. From here, further tests are run with various parameters and their respective values to find the perfect classifier for the data. It should be noted that ideally all the parameters would be tested at once with various values to try all possible permutations, however, without a more powerful processor, this could take days to weeks due to the exponential increase in time with parameter value additions (see reflection).
@@ -81,6 +87,7 @@ The final program is incredibly concise, it’s only 100 or so lines of code, wh
 
 ## Reflection
 The decision to choose the neural network classifier MLP was made because there has been a huge surge in popularity in the realm of neural networks (and deep learning) in recent years and so practice in this field was something very desirable. When testing and attempting to find the correct parameters using the ‘GridSearchCV()’ method, this took an extremely large amount of computing power, sometimes having to leave my laptop running the program for days.
+
 ![12](https://user-images.githubusercontent.com/54746562/141026754-15333c3b-cc61-4120-b8fc-7f0d5340e6bf.png)
 
 For example, running the HPO function with the parameters to the right had been left to run for 91 hours (appendix 3) before the decision was made to reduce the number of parameters and breakdown the process to make things faster as adding each additional parameter increases the complexity exponentially.
