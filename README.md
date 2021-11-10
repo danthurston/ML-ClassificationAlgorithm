@@ -6,10 +6,10 @@ For this assignment the task was to develop, define and utilize a machine learni
 ## Preparing the Data
 The first task was to prepare the data for processing by the classification algorithm. This starts with importing the CSV containing the dataset. To handle the data, the Pandas library is imported and utilized as it is known for being spectacular at handling CSV files. 
 
-## Splitting
+### Splitting
 From here, the data is split into training and testing sets of data using ‘scikits’ built-in ‘train_test_split’ function. This function is sent the target data (column) and the remainder of the data as two separate sets. This was performed using the ‘iloc[ ]’ function to select certain pieces of data from the set. These two sets are then passed to the train_test_split function to create training and testing sets of data. The data is split because if the model was trained on all the data then it would have near one hundred percent accuracy. However, if new data is added, then it’s accuracy would likely be very poor. This is known as over-fitting. Similarly, a model can suffer from under-fitting if the split percentages are too far in the other direction. It is ideally an 80/20 percent split with ‘train’ taking the majority (McCaffrey, 2013).
 
-## Scaling
+### Scaling
 As data can come in forms of various magnitude and ranges, there is a need to scale down the data so it’s more manageable, this is also known as standardization or normalization. Ideally the data will all be between 0 and 1. Scaling is important as when data has massive differences, the larger data can overpower the other data in the set. For this program, the ‘StandardScaler()’ function was used to implement scaling. This function normalizes the data in such a way that the mean value of the dataset will be 0 and standard deviation will be 1. The data is centered and scaled separately on each feature by computing relevant statistics on the training set data. Mean and standard deviation are stored to be used on later data using the transform method (Sklearn, 2019). Even variables that were thousands away from others are now scaled to a proportionate and manageable level. The data is now ready to be passed to the chosen classification algorithm.
 
 ## The Classification Algorithm
@@ -22,32 +22,32 @@ Due to the complexity of the chosen algorithm, there are many parameters that ca
 Especially in neural networks with huge datasets, HPO can be a very long task to complete as so many different variations of the classifier need to be run. To aid in this, certain parameters can be removed by default because they are non-applicable to the dataset or they do not apply to some fixed parameter that has been chosen prior to HPO. The more parameters that can be chosen prior to HPO the better as it massively decreases the computing time when running the function. Research into which parameters to choose based on the dataset and circumstances can be performed to reduce complexity.
 An example of the above is that the solver ‘adam’ was chosen due to its known effectiveness with datasets containing thousands of pieces of data. Making this decision ruled out many of the other parameters as some only apply to specific solvers. Time complexity will grow exponentially with every added parameter (and respective variables), thus the need to reduce the number of them as soon as possible. The process of breaking down the classifier into its components to aid in designing the perfect model is done in several stages and breaks down as follows. 
 
-## Breakdown
+### Breakdown
 First, we begin with the full classifier with all its parameters at its default state (Appendix 1):
 
 ![1-MLPClassifier](https://user-images.githubusercontent.com/54746562/141026247-a4d2d5b9-00a5-4794-bfc9-09a8831e590a.png)
 
-### Stage 1:
+#### Stage 1:
 List all parameters for an easier to work with format.
 
 ![2](https://user-images.githubusercontent.com/54746562/141026320-8bf033e2-5424-47a5-ab67-c6d9cf54dc68.png)
 
-### Stage 2:
+#### Stage 2:
 The solver ‘adam’ being chosen excludes certain parameters that only apply to other solvers.
 
 ![3](https://user-images.githubusercontent.com/54746562/141026404-080333bb-cc9f-4ddf-be72-d3bab7207ec1.png)
 
-### Stage 3:
+#### Stage 3:
 All the parameters that are not applicable, or the effects of which are not desired can now be removed. Other parameters are useful for testing purposes but not required in practice.
 
 ![4](https://user-images.githubusercontent.com/54746562/141026478-7eccd1c1-7580-48a3-877b-a805cccc5134.png)
 
-### Stage 4:
+#### Stage 4:
 This is the result of the breakdown. A list of all the parameters that need to be passed to the HPO to find their optimum values. This reduction in parameters results in a much more manageable list than initially seen. From here, the hyper-parameter optimization function will be much less complex to implement.
 
 ![5](https://user-images.githubusercontent.com/54746562/141026519-ccb4544c-bd7a-4ace-80dd-277c0e6f8cee.png)
 
-## HPO Function – GridSearchCV()
+### HPO Function – GridSearchCV()
 The chosen function to execute HPO is GridSearchCV(). Once the breakdown process has been completed the ‘parameter_space’ can be defined. This is essentially the list of all the parameters and their various inputs to test to find the perfect classifier. For most tests, the chosen parameters had their testing variables set slightly either side of the default (or the previous result) to be able to decipher whether they are required to be set higher or lower.
 
 For example, this test was comprised of the following parameters and their chosen variables. 
