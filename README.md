@@ -19,7 +19,7 @@ To develop this algorithm for the dataset and ensure accuracy, the correct param
 ## Hyperparameter Optimization
 Due to the complexity of the chosen algorithm, many parameters could influence the accuracy of the model. Hyperparameter optimization (HPO) allows all the parameters to have various options tested, running through all possible permutations and finally displaying the optimum classifier. The HPO function chosen for this task was GridSearchCV. One of the main benefits of this function is that it also performs cross-validation (CV).
 
-In neural networks with huge datasets, HPO can be a lengthy task with so many variations of the classifier to run. To aid in this, certain parameters can be removed if they are not applicable. The more parameters that can be chosen prior to HPO the better as it massively decreases the computing time when running the function. Research into which parameters to choose based on the dataset and circumstances can be performed to aid in this. For example, the solver ‘adam’ was chosen due to its known effectiveness with datasets containing thousands of entries. Making this decision ruled out many of the other parameters as some only apply to specific solvers. Time complexity will grow exponentially with every added parameter, thus they should be reduced as soon as possible. The process of breaking down the classifier into its components to aid in designing the perfect model is performed in stages as follows. 
+HPO can be a lengthy task with so many variations of the classifier to run. To aid in this, certain parameters can be removed if they are not applicable. The more parameters that can be chosen prior to HPO the better as it massively decreases the computing time when running the function. Research into which parameters to choose based on the dataset and circumstances can be performed to aid in this. For example, the solver ‘adam’ was chosen due to its known effectiveness with datasets containing thousands of entries. Making this decision ruled out many of the other parameters as some only apply to specific solvers. Time complexity will grow exponentially with every added parameter, thus they should be reduced as soon as possible. The process of breaking down the classifier into its components to aid in designing the perfect model is performed in stages as follows. 
 
 ### Breakdown
 First is the full classifier with all its parameters at its default state (Appendix 1):
@@ -121,6 +121,17 @@ Breaking down the GridSearchCV function enables a more complete understanding of
 Below is an attempted but ultimately failed test that had to be stopped. The time spent processing without result can be seen through the start time at top of command prompt and stop date and time in bottom right.
 
 ![AP3-searchtest](https://user-images.githubusercontent.com/54746562/141694757-5181bd06-d370-4503-9542-5f80fcbcb783.png)
+
+### Appendix 4 - Further Testing
+The following is a small example of tests ran to find optimum parameters using hyperparameter optimization with GridSearchCV. 
+
+![AP4-further](https://user-images.githubusercontent.com/54746562/141695231-dcf048ad-3334-4107-b65b-2f497b809eda.png)
+
+![AP5-further2](https://user-images.githubusercontent.com/54746562/141695246-d8c3d565-ac4d-4d86-b9ee-7c589470041d.png)
+
+![AP5-further3](https://user-images.githubusercontent.com/54746562/141695265-767b640f-7cb4-4a82-b05d-28f0bda34058.png)
+
+![AP5-further4](https://user-images.githubusercontent.com/54746562/141695285-1e3f3702-a285-4e78-b355-f51ce98f5efb.png)
 
 
 
