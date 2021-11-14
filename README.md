@@ -55,7 +55,7 @@ Once the breakdown process has been completed the parameter space can be defined
 
 The result of this process are the parameters GridSearchCV defines as ideal for the dataset from the variables input. Further tests are run with various parameters and their respective values to find the perfect classifier for the data. It should be noted that ideally all the parameters would be tested at once with various values to try all possible permutations, however, this is impractical due to the exponential increase in complexity with each additional input.
 
-Using this method of smaller batches of parameters, it's vital to notice trends and pick up on consistent outcomes. For example, every test that included the ‘activation’ parameter returned ‘relu’ as the optimum value, so this could reliably be removed from the list and another parameter added. This process is continued until all parameters can be fixed to their ideal values (see appendix 4 for more test data). 
+Using this method of smaller batches of parameters, it's vital to notice trends and pick up on consistent outcomes. For example, every test that included the ‘activation’ parameter returned ‘relu’ as the optimum value, so this could reliably be removed from the list and another parameter added. This process is continued until all parameters can be fixed to their ideal values (see appendix 3 for more test data). 
 
 After all the parameters are selected, the param_grid variable of GridSearchCV is set to null so that only cross-validation is performed on the completed MLPClassifier for the final output.
 
@@ -85,9 +85,11 @@ The final section of the output is a **classification report** which displays va
 ## Conclusion
 The final program is incredibly concise, being only 100~ lines of code, whereas if this was coded in Java instead of Python it would undoubtedly be hundreds of lines of code and inherently less efficient. With the test computer only able to run HPO on 7 or so parameters at a time, they had to be broken down into small batches. Despite the breakdown meaning a huge increase in time spent running tests, it did mean that a far deeper understanding of all the classifiers’ parameters could be achieved. For example, it was discovered which parameters had strong effects or links to one another and so needed to be tested together, such as ‘max_iter’ and ‘tol’. 
 
-Attempting to find ideal parameters using GridSearchCV() took an substantial amount of processing power, sometimes having to leave my laptop running for days. For example, the HPO function with the parameters below was left to run for __91 hours__ (appendix 3) before decisiding to reduce the number of parameters and breakdown the process to make the function faster.
+Attempting to find ideal parameters using GridSearchCV() took an substantial amount of processing power, sometimes having to leave my laptop running for days. For example, the HPO function with the parameters shown below was left to run for __91 hours__ before deciding to reduce the number of parameters and breakdown the process to make the function faster.
 
 ![12](https://user-images.githubusercontent.com/54746562/141026754-15333c3b-cc61-4120-b8fc-7f0d5340e6bf.png)
+
+![AP3-searchtest](https://user-images.githubusercontent.com/54746562/141694757-5181bd06-d370-4503-9542-5f80fcbcb783.png)
 
 ## References:
 Brownlee, James - Machine Learning Mastery. 2019. A Gentle Introduction to k-fold Cross-Validation. [ONLINE] Available at: https://machinelearningmastery.com/k-fold-cross-validation/ [Accessed 15 May 2019].
@@ -113,12 +115,7 @@ Breaking down the GridSearchCV function enables a more complete understanding of
 
 ![AP2-GridsearchCV](https://user-images.githubusercontent.com/54746562/141694604-8f830fc7-2f50-4262-a5cb-cf051e1b3510.png)
 
-### Appendix 3 - Attempted Hyperparameter Optimization Test
-Below is an attempted but ultimately failed test that had to be stopped. The time spent processing without result can be seen through the start time at top of command prompt and stop date and time in bottom right.
-
-![AP3-searchtest](https://user-images.githubusercontent.com/54746562/141694757-5181bd06-d370-4503-9542-5f80fcbcb783.png)
-
-### Appendix 4 - Further Testing
+### Appendix 3 - Further Testing
 The following is a small example of tests ran to find optimum parameters using hyperparameter optimization with GridSearchCV. 
 
 #### Example 1
