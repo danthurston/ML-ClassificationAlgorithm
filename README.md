@@ -1,34 +1,33 @@
 # Machine Learning Classification Algorithm
 
 ## Introduction
-For this assignment the task was to develop, define and utilize a machine learning classification algorithm. The algorithm was ultimately to be used to find the percentage of spam in a data set of thousands of emails. Once this had been achieved, the following task was to apply n-fold cross validation to the algorithm to test its effectiveness across the whole dataset. Lastly, statistics regarding the accuracy of the algorithm are output for a final evaluation.
+For this assignment the task was to develop a machine learning classification algorithm to find the percentage of spam in a dataset of thousands of emails. Once this had been achieved, a n-fold cross validation will test it's effectiveness and statistics regarding accuracy are gathered.
 
 ## Preparing the Data
-The first task was to prepare the data for processing by the classification algorithm. This starts with importing the CSV containing the dataset. To handle the data, the Pandas library is imported and utilized as it is known for being spectacular at handling CSV files. 
+The first task is to prepare the data for processing by the classification algorithm. This starts with importing the CSV containing the dataset. To handle the data, the Pandas library is imported and utilized for CSV file handling. 
 
 ### Splitting
-From here, the data is split into training and testing sets of data using ‘scikits’ built-in ‘train_test_split’ function. This function is sent the target data (column) and the remainder of the data as two separate sets. This was performed using the ‘iloc[ ]’ function to select certain pieces of data from the set. These two sets are then passed to the train_test_split function to create training and testing sets of data. The data is split because if the model was trained on all the data then it would have near one hundred percent accuracy. However, if new data is added, then it’s accuracy would likely be very poor. This is known as over-fitting. Similarly, a model can suffer from under-fitting if the split percentages are too far in the other direction. It is ideally an 80/20 percent split with ‘train’ taking the majority (McCaffrey, 2013).
+The data is then split into training and testing sets using ‘scikits’ built-in ‘train_test_split’ function. This function is sent the target data (column) and the remainder of the data as two separate sets. This was performed using the ‘iloc[ ]’ function to select certain pieces of data from the set. These sets are then passed to the train_test_split function to create training and testing sets. If the model was trained on all the data then it would have near one hundred percent accuracy, however, any new data added would likey reduce the accuracy. This is known as over-fitting. Similarly, a model can suffer from under-fitting if the split percentages are too far in the other direction. It is ideally an 80/20 percent split, with ‘train’ taking the majority (McCaffrey, 2013).
 
 ### Scaling
-As data can come in forms of various magnitude and ranges, there is a need to scale down the data so it’s more manageable, this is also known as standardization or normalization. Ideally the data will all be between 0 and 1. Scaling is important as when data has massive differences, the larger data can overpower the other data in the set. For this program, the ‘StandardScaler()’ function was used to implement scaling. This function normalizes the data in such a way that the mean value of the dataset will be 0 and standard deviation will be 1. The data is centered and scaled separately on each feature by computing relevant statistics on the training set data. Mean and standard deviation are stored to be used on later data using the transform method (Sklearn, 2019). Even variables that were thousands away from others are now scaled to a proportionate and manageable level. The data is now ready to be passed to the chosen classification algorithm.
+As data can come in different forms of magnitude and ranges, there is a need to scale down the data so it’s more manageable, this is known as standardization or normalization. Ideally the data will be between 0 and 1. Scaling is important as significant data differences can cause larger data to overpower other data. For this program, the ‘StandardScaler()’ function was used to implement scaling. This function normalizes data so that the mean dataset value will be 0 and standard deviation will be 1. The data is centered and scaled separately on each feature by computing relevant statistics on the training set data. Mean and standard deviation are stored to be used with other data using the transform method (Sklearn, 2019). The scaled data is now ready to be passed to the classification algorithm.
 
-## The Classification Algorithm
-The chosen classification algorithm for this task was the Multi-Layer Perceptron (MLP) Neural Network. It was chosen due to its powerful effectiveness and accuracy. Even though computing time can become an issue, an advanced algorithm such as this was ideal due to its ability to handle vast amounts of data.
-To develop this algorithm for the dataset the correct parameters had to be chosen to ensure accuracy. The MLP classifier is comprised of a multitude of different parameters that each affect the accuracy of the output by one means or another (see appendix 1). The key to creating the perfect classifier is choosing the perfect parameters. As there are so many parameters involved with neural networks, it can be a complex and lengthy process to find the perfect value for each parameter. As such, a technique to find the ideal parameters for the dataset can be used which is known as hyperparameter optimization.
+## Classification Algorithm
+The Multi-Layer Perceptron (MLP) neural network is used due to its effectiveness and accuracy when handling vast amounts of data, though computing time can become an issue.
+To develop this algorithm for the dataset and ensure accuracy, the correct parameters need to be chosen. The MLP classifier is comprised of a multitude of parameters that impact the output accuracy in some way (appendix 1). With so many parameters involved it can be a complex and lengthy process to find the perfect value for each parameter. As such, a technique to find the ideal parameters for the dataset can be used. This is known as hyperparameter optimization.
 
-## Hyper-Parameter-Optimization
-Due to the complexity of the chosen algorithm, there are many parameters that can influence the accuracy of the model. With so many variables and every variant of the MLP they could produce, it can be difficult to choose the right parameters. To aid in finding the optimum inputs, hyper-parameter-optimization (HPO) allows all the parameters to have various options tested, running through all possible permutations and finally displaying the optimum classifier. The HPO function chosen for this task was GridSearchCV. One of the main benefits of this function is that it also performs cross-validation (as denoted by the ‘CV’).
+## Hyperparameter Optimization
+Due to the complexity of the chosen algorithm, many parameters could influence the accuracy of the model. Hyperparameter optimization (HPO) allows all the parameters to have various options tested, running through all possible permutations and finally displaying the optimum classifier. The HPO function chosen for this task was GridSearchCV. One of the main benefits of this function is that it also performs cross-validation (CV).
 
-Especially in neural networks with huge datasets, HPO can be a very long task to complete as so many different variations of the classifier need to be run. To aid in this, certain parameters can be removed by default because they are non-applicable to the dataset or they do not apply to some fixed parameter that has been chosen prior to HPO. The more parameters that can be chosen prior to HPO the better as it massively decreases the computing time when running the function. Research into which parameters to choose based on the dataset and circumstances can be performed to reduce complexity.
-An example of the above is that the solver ‘adam’ was chosen due to its known effectiveness with datasets containing thousands of pieces of data. Making this decision ruled out many of the other parameters as some only apply to specific solvers. Time complexity will grow exponentially with every added parameter (and respective variables), thus the need to reduce the number of them as soon as possible. The process of breaking down the classifier into its components to aid in designing the perfect model is done in several stages and breaks down as follows. 
+In neural networks with huge datasets, HPO can be a lengthy task with so many variations of the classifier to run. To aid in this, certain parameters can be removed if they are not applicable. The more parameters that can be chosen prior to HPO the better as it massively decreases the computing time when running the function. Research into which parameters to choose based on the dataset and circumstances can be performed to aid in this. For example, the solver ‘adam’ was chosen due to its known effectiveness with datasets containing thousands of entries. Making this decision ruled out many of the other parameters as some only apply to specific solvers. Time complexity will grow exponentially with every added parameter, thus they should be reduced as soon as possible. The process of breaking down the classifier into its components to aid in designing the perfect model is performed in stages as follows. 
 
 ### Breakdown
-First, we begin with the full classifier with all its parameters at its default state (Appendix 1):
+First is the full classifier with all its parameters at its default state (Appendix 1):
 
 ![1-MLPClassifier](https://user-images.githubusercontent.com/54746562/141026247-a4d2d5b9-00a5-4794-bfc9-09a8831e590a.png)
 
 #### Stage 1:
-List all parameters for an easier to work with format.
+List all parameters in an easier to manage format.
 
 ![2](https://user-images.githubusercontent.com/54746562/141026320-8bf033e2-5424-47a5-ab67-c6d9cf54dc68.png)
 
@@ -38,12 +37,12 @@ The solver ‘adam’ being chosen excludes certain parameters that only apply t
 ![3](https://user-images.githubusercontent.com/54746562/141026404-080333bb-cc9f-4ddf-be72-d3bab7207ec1.png)
 
 #### Stage 3:
-All the parameters that are not applicable, or the effects of which are not desired can now be removed. Other parameters are useful for testing purposes but not required in practice.
+All parameters that are not applicable, or the effects of which are not desired can be removed. Other parameters are useful for testing purposes but not required in practice.
 
 ![4](https://user-images.githubusercontent.com/54746562/141026478-7eccd1c1-7580-48a3-877b-a805cccc5134.png)
 
 #### Stage 4:
-This is the result of the breakdown. A list of all the parameters that need to be passed to the HPO to find their optimum values. This reduction in parameters results in a much more manageable list than initially seen. From here, the hyper-parameter optimization function will be much less complex to implement.
+This is the result of the breakdown. A list of all the parameters that need to be passed to the HPO to find their optimum values. This reduction in parameters results in a much more manageable list and hyperparameter optimization will be much less complex to implement.
 
 ![5](https://user-images.githubusercontent.com/54746562/141026519-ccb4544c-bd7a-4ace-80dd-277c0e6f8cee.png)
 
