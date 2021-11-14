@@ -105,3 +105,22 @@ Scikit-learn - 2019. sklearn.model_selection.GridSearchCV— scikit-learn 0.21.1
 
 Scikit-learn - 2019. sklearn.preprocessing.StandardScaler— scikit-learn 0.21.1 documentation. [ONLINE] Available at: https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html. [Accessed 15 May 2019].
 
+## Appendix
+
+### Appendix 1 - Parameter Breakdown - MLP Classifier 
+Even after reorganising the full classifier, it doesn’t always help with defining each parameters purpose. What follows is a breakdown of all the parameters of the ‘MLPClassifier’. Creating this aided in research prior to creating the classifier and as an efficient reference.
+
+![AP1-AllParameters](https://user-images.githubusercontent.com/54746562/141694468-0790ac8d-32af-4763-9883-93dcac09f3df.png)
+
+### Appendix 2 - Parameter Breakdown - GridSearchCV
+Breaking down the GridSearchCV function enables a more complete understanding of the function at hand and allows an understanding of all the abilities of the function. GridSearchCV is not as complex as the MLPClassifier however, it still benefitted the project by being broken down and analysed.
+
+![AP2-GridsearchCV](https://user-images.githubusercontent.com/54746562/141694604-8f830fc7-2f50-4262-a5cb-cf051e1b3510.png)
+
+### Appendix 3 - Attempted Hyperparameter Optimization Test
+Below is an attempted but ultimately failed test that had to be stopped. The time spent processing without result can be seen through the start time at top of command prompt and stop date and time in bottom right.
+
+![AP3-searchtest](https://user-images.githubusercontent.com/54746562/141694757-5181bd06-d370-4503-9542-5f80fcbcb783.png)
+
+
+
