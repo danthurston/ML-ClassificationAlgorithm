@@ -46,7 +46,7 @@ This is the result of the breakdown. A list of all the parameters that need to b
 
 ![5](https://user-images.githubusercontent.com/54746562/141026519-ccb4544c-bd7a-4ace-80dd-277c0e6f8cee.png)
 
-### HPO Function – GridSearchCV()
+### HPO Function: GridSearchCV()
 Once the breakdown process has been completed the parameter space can be defined. This is a list of all parameters and their respective values for cross referencing to find the ideal classifier. For most tests the parameters had their testing variables set slightly either side of the default, or previous result, to be able to decipher whether they should be raised or lowered. It is interesting to note that this process can utilize multiple cores and so the completion time is dependent on the hardware available.
 
 ![6](https://user-images.githubusercontent.com/54746562/141026550-4e2c81cb-b4b1-439e-b68c-488763d0987d.jpg)
@@ -92,16 +92,16 @@ Attempting to find ideal parameters using GridSearchCV() took an substantial amo
 ![AP3-searchtest](https://user-images.githubusercontent.com/54746562/141694757-5181bd06-d370-4503-9542-5f80fcbcb783.png)
 
 ## References:
-Brownlee, James - Machine Learning Mastery. 2019. A Gentle Introduction to k-fold Cross-Validation. [ONLINE] Available at: https://machinelearningmastery.com/k-fold-cross-validation/ [Accessed 15 May 2019].
+Brownlee, James - Machine Learning Mastery. 2019. A Gentle Introduction to k-fold Cross-Validation. [ONLINE] Available at: [https://machinelearningmastery.com/k-fold-cross-validation/](https://machinelearningmastery.com/k-fold-cross-validation/). [Accessed 15 May 2019].
 
-McCaffrey, James - Visual Studio Magazine. 2013. Understanding and Using K-Fold Cross-Validation for Neural Networks. [ONLINE] Available at: https://visualstudiomagazine.com/articles/2013/10/01/understanding-and-using-kfold.aspx. [Accessed 14 May 2019].
+McCaffrey, James - Visual Studio Magazine. 2013. Understanding and Using K-Fold Cross-Validation for Neural Networks. [ONLINE] Available at: [https://visualstudiomagazine.com/articles/2013/10/01/understanding-and-using-kfold.aspx](https://visualstudiomagazine.com/articles/2013/10/01/understanding-and-using-kfold.aspx). [Accessed 14 May 2019].
 
 Shruti Saxena – 2019. Precision vs Recall – Towards Data Science. [ONLINE] Available at: https://towardsdatascience.com/precision-vs-recall-386cf9f89488. [Accessed 21 May 2019]
-Scikit-learn - 2019. sklearn.neural_network.MLPClassifier — scikit-learn 0.21.1 documentation. [ONLINE] Available at: https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html. [Accessed 15 May 2019].
+Scikit-learn - 2019. sklearn.neural_network.MLPClassifier — scikit-learn 0.21.1 documentation. [ONLINE] Available at: [https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html). [Accessed 15 May 2019].
 
-Scikit-learn - 2019. sklearn.model_selection.GridSearchCV— scikit-learn 0.21.1 documentation. [ONLINE] Available at: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html. [Accessed 15 May 2019].
+Scikit-learn - 2019. sklearn.model_selection.GridSearchCV— scikit-learn 0.21.1 documentation. [ONLINE] Available at: [https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html). [Accessed 15 May 2019].
 
-Scikit-learn - 2019. sklearn.preprocessing.StandardScaler— scikit-learn 0.21.1 documentation. [ONLINE] Available at: https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html. [Accessed 15 May 2019].
+Scikit-learn - 2019. sklearn.preprocessing.StandardScaler— scikit-learn 0.21.1 documentation. [ONLINE] Available at: [https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html). [Accessed 15 May 2019].
 
 ## Appendix
 
